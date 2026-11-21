@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Catch My Heart ❤️</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --pink: #ff4f91;
+        --ink: #793653;
+        --glass: rgba(255, 255, 255, 0.76);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: Poppins, sans-serif;
+      }
+      body {
+        color: var(--ink);
+        background: linear-gradient(135deg, #ffe1ee, #e9d9ff, #ffedf5);
+        background-size: 300% 300%;
+        animation: bg 14s ease infinite;
+        overflow-x: hidden;
+      }
+      body.dark {
+        --ink: #fff;
+        --glass: rgba(255, 255, 255, 0.12);
+        background: linear-gradient(135deg, #21152e, #492646, #30204d);
+        background-size: 300% 300%;
+      }
+      @keyframes bg {
+        50% {
+          background-position: 100% 100%;
+        }
+      }
+      button {
+        font:
+          600 14px Poppins,
+          sans-serif;
+        border: 0;
+        border-radius: 30px;
+        padding: 11px 19px;
+        background: var(--pink);
+        color: white;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+        touch-action: manipulation;
+      }
+      button:hover {
+        transform: translateY(-2px);
+      }
+      button:focus-visible {
+        outline: 3px solid #ffba52;
+        outline-offset: 3px;
+      }
+      .toolbar {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        display: flex;
+        gap: 7px;
+        z-index: 50;
+      }
+      .toolbar button {
+        background: #ffffffd9;
+        color: #a53668;
+        padding: 10px;
+      }
+      main {
+        width: min(100% - 24px, 900px);
+        margin: auto;
+        padding: 55px 0 24px;
+        text-align: center;
+      }
+      h1 {
+        font:
+          700 clamp(45px, 7vw, 75px) "Dancing Script",
+          cursive;
+        color: var(--pink);
+        margin: 0;
+      }
+      .subtitle {
+        font-size: 13px;
+        margin: 2px 0 12px;
+      }
+      .hud {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .stat {
+        background: var(--glass);
+        border: 1px solid #ffffff7a;
+        border-radius: 16px;
+        padding: 9px 5px;
+        box-shadow: 0 5px 15px #ad65801a;
+      }
+      .stat small {
+        font-size: 11px;
+        display: block;
+        opacity: 0.75;
+      }
+      .stat strong {
+        font-size: 23px;
+        color: var(--pink);
+      }
+      #lives {
+        white-space: nowrap;
+        letter-spacing: 2px;
+      }
+      .game {
+        position: relative;
+        width: 100%;
+        height: clamp(350px, 62dvh, 600px);
+        overflow: hidden;
+        border-radius: 25px;
+        border: 3px solid #ffffffaa;
+        background: linear-gradient(180deg, #fff7fd, #ffc9e1);
+        box-shadow: 0 15px 45px #a94c8035;
+        touch-action: none;
+        user-select: none;
+      }
+      .dark .game {
+        background: linear-gradient(#3e2b55, #784063);
+      }
+      .game:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(#fff 2px, transparent 3px);
+        background-size: 43px 43px;
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      .heart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+        will-change: transform;
+        line-height: 1;
+        filter: drop-shadow(0 3px 3px #0002);
+      }
+      .basket {
+        position: absolute;
+        bottom: 9px;
+        left: 0;
+        font-size: clamp(55px, 7vw, 75px);
+        line-height: 1;
+        pointer-events: none;
+        will-change: transform;
+        filter: drop-shadow(0 5px 4px #0003);
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        background: #fff9;
+        backdrop-filter: blur(9px);
+      }
+      .dark .overlay {
+        background: #1c102cbb;
+      }
+      .modal {
+        width: min(100%, 420px);
+        padding: 22px 15px;
+        border-radius: 25px;
+        background: var(--glass);
+        box-shadow: 0 10px 40px #0001;
+      }
+      .modal h2 {
+        font: 700 clamp(35px, 6vw, 53px) "Dancing Script";
+        color: var(--pink);
+        margin: 5px;
+      }
+      .modal p {
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .legend {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        font-size: 13px;
+        margin: 10px 0 20px;
+        flex-wrap: wrap;
+      }
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .controls button {
+        padding: 10px 18px;
+      }
+      .pop {
+        position: absolute;
+        pointer-events: none;
+        z-index: 5;
+        font-size: 18px;
+        font-weight: 700;
+        animation: floatUp 0.8s ease-out forwards;
+      }
+      @keyframes floatUp {
+        to {
+          transform: translateY(-75px);
+          opacity: 0;
+        }
+      }
+      .particle {
+        position: absolute;
+        pointer-events: none;
+        z-index: 5;
+        animation: burst 0.7s ease-out forwards;
+      }
+      @keyframes burst {
+        to {
+          transform: translate(var(--dx), var(--dy)) scale(0.3);
+          opacity: 0;
+        }
+      }
+      .footer {
+        font-size: 12px;
+        opacity: 0.75;
+        margin: 10px;
+      }
+      @media (max-width: 550px) {
+        main {
+          padding-top: 70px;
+        }
+        .hud {
+          gap: 5px;
+        }
+        .stat {
+          padding: 8px 3px;
+        }
+        .stat strong {
+          font-size: 18px;
+        }
+        .stat small {
+          font-size: 9px;
+        }
+        #lives {
+          letter-spacing: 0;
+          font-size: 17px;
+        }
+        .game {
+          height: clamp(370px, 66dvh, 650px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        body {
+          animation: none;
+        }
+        button {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <button id="music" aria-label="Toggle sound">🔊</button>
+      <button id="theme" aria-label="Toggle theme">🌙</button>
+      <button id="share" aria-label="Share game">💌</button>
+    </div>
+
+    <main>
+      <h1>Catch My Heart ❤️</h1>
+      <p class="subtitle">
+        Catch the love. Avoid the darkness. Protect your hearts!
+      </p>
+
+      <div class="hud">
+        <div class="stat">
+          <small>SCORE</small><strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <small>LIVES</small><strong id="lives">❤️❤️❤️</strong>
+        </div>
+        <div class="stat">
+          <small>LEVEL</small><strong id="level">1</strong>
+        </div>
+        <div class="stat"><small>BEST</small><strong id="best">0</strong></div>
+      </div>
+
+      <div class="game" id="game">
+        <div class="basket" id="basket">🧺</div>
+
+        <div class="overlay" id="overlay">
+          <div class="modal">
+            <div style="font-size: 55px" id="modalEmoji">💖</div>
+            <h2 id="modalTitle">Catch My Heart!</h2>
+            <p id="modalText">
+              Collect red hearts and avoid black hearts. You have only 3 lives!
+            </p>
+            <div class="legend">
+              <span>❤️ +10</span>
+              <span>🖤 -15</span>
+              <span>💛 +50</span>
+              <span>💔 Red miss = -1 life</span>
+            </div>
+            <button id="start">Start Game 💗</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="pause">⏸ Pause</button>
+        <button id="restart">↻ Restart</button>
+      </div>
+      <p class="footer">Desktop: Mouse / ← → keys · Mobile: Drag your finger</p>
+    </main>
+
+    <script>
+      /* ========================================
+   CONFIGURATION — EDIT THESE VALUES
+======================================== */
+      const CONFIG = {
+        name: "My Love",
+        color: "#ff4f91",
+        initialLives: 3,
+        redPoints: 10,
+        extraLifeEvery: 500,
+        blackPenalty: 15,
+        blackHeartChance: 0.23,
+        baseSpeed: 220,
+        baseSpawnInterval: 700,
+        goldenHeartChance: 0.06, // 6% spawn chance
+        goldenHeartSpeed: 2.2, // 2.2x faster
+        goldenHeartPoints: 50,
+        speedIncreasePerLevel: 35,
+        levelEveryPoints: 100,
+        maxLevel: 20,
+        musicUrl: "",
+        winMessage:
+          "You caught my heart, and now it belongs to you forever! 💕",
+      };
+
+      document.documentElement.style.setProperty("--pink", CONFIG.color);
+
+      const $ = (id) => document.getElementById(id);
+      const game = $("game");
+      const basket = $("basket");
+
+      let score = 0;
+      let lives = CONFIG.initialLives;
+      let level = 1;
+      let best = 0;
+      let nextExtraLife = CONFIG.extraLifeEvery;
+
+      try {
+        best = Number(localStorage.getItem("catchHeartBest")) || 0;
+      } catch (e) {}
+
+      let running = false;
+      let paused = false;
+      let lastFrame = 0;
+      let spawnTimer = 0;
+      let animationId = null;
+      let hearts = [];
+      let basketX = 0;
+      let audio = null;
+      let soundEnabled = true;
+      let audioContext = null;
+      let secretCount = 0;
+
+      $("best").textContent = best;
+
+      /* ========================================
+   AUDIO
+======================================== */
+      function playSound(freq = 600, duration = 0.12, type = "sine") {
+        if (!soundEnabled) return;
+
+        try {
+          audioContext =
+            audioContext ||
+            new (window.AudioContext || window.webkitAudioContext)();
+
+          const osc = audioContext.createOscillator();
+          const gain = audioContext.createGain();
+          const now = audioContext.currentTime;
+
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.07, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+          osc.connect(gain);
+          gain.connect(audioContext.destination);
+
+          osc.start(now);
+          osc.stop(now + duration);
+        } catch (e) {}
+      }
+
+      /* ========================================
+   HUD
+======================================== */
+      function updateHUD() {
+        $("score").textContent = score;
+        $("level").textContent = level;
+        $("lives").textContent =
+          "❤️".repeat(Math.max(0, lives)) +
+          "🖤".repeat(Math.max(0, CONFIG.initialLives - lives));
+
+        if (score > best) {
+          best = score;
+          $("best").textContent = best;
+          try {
+            localStorage.setItem("catchHeartBest", String(best));
+          } catch (e) {}
+        }
+      }
+
+      /* ========================================
+   BASKET MOVEMENT
+======================================== */
+      function setBasketX(x) {
+        const width = game.clientWidth;
+        const basketWidth = basket.getBoundingClientRect().width || 70;
+        const half = basketWidth / 2;
+
+        basketX = Math.max(half, Math.min(width - half, x));
+        basket.style.transform = `translateX(${basketX - half}px)`;
+      }
+
+      function moveWithPointer(e) {
+        if (!running || paused) return;
+        const rect = game.getBoundingClientRect();
+        setBasketX(e.clientX - rect.left);
+      }
+
+      game.addEventListener("pointerdown", (e) => {
+        if (e.target.closest(".overlay")) return;
+        game.setPointerCapture(e.pointerId);
+        moveWithPointer(e);
+      });
+
+      game.addEventListener("pointermove", moveWithPointer);
+
+      document.addEventListener("keydown", (e) => {
+        if (!running || paused) return;
+
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+          setBasketX(basketX + (e.key === "ArrowLeft" ? -35 : 35));
+        }
+
+        if (e.code === "Space") {
+          e.preventDefault();
+          togglePause();
+        }
+      });
+
+      /* ========================================
+   CREATE FALLING HEART
+======================================== */
+      function createHeart(forceType = null) {
+        const random = Math.random();
+
+        const golden =
+          forceType === "golden" ||
+          (forceType === null && random < CONFIG.goldenHeartChance);
+
+        const black =
+          !golden &&
+          (forceType === "black" ||
+            (forceType === null &&
+              random < CONFIG.goldenHeartChance + CONFIG.blackHeartChance));
+
+        const el = document.createElement("div");
+        el.className = "heart";
+
+        el.textContent = golden ? "💛" : black ? "🖤" : "❤️";
+
+        const size = golden ? 26 : 30 + Math.random() * 12;
+
+        const x =
+          15 + Math.random() * Math.max(1, game.clientWidth - size - 30);
+
+        el.style.fontSize = size + "px";
+        el.style.width = size + "px";
+        el.style.height = size + "px";
+
+        if (golden) {
+          el.style.filter = "drop-shadow(0 0 12px gold)";
+        }
+
+        game.appendChild(el);
+
+        const normalSpeed =
+          CONFIG.baseSpeed +
+          (level - 1) * CONFIG.speedIncreasePerLevel +
+          Math.random() * 65;
+
+        hearts.push({
+          el,
+          x,
+          y: -size,
+          size,
+          black,
+          golden,
+          speed: golden ? normalSpeed * CONFIG.goldenHeartSpeed : normalSpeed,
+        });
+      }
+      /* ========================================
+   PARTICLE EFFECTS
+======================================== */
+      function popup(x, y, text, color) {
+        const el = document.createElement("span");
+        el.className = "pop";
+        el.textContent = text;
+        el.style.color = color;
+        el.style.left = x + "px";
+        el.style.top = y + "px";
+        game.append(el);
+        setTimeout(() => el.remove(), 800);
+      }
+
+      function particles(x, y, emoji = "💗") {
+        for (let i = 0; i < 8; i++) {
+          const el = document.createElement("span");
+          el.className = "particle";
+          el.textContent = emoji;
+          el.style.left = x + "px";
+          el.style.top = y + "px";
+          el.style.fontSize = "14px";
+          el.style.setProperty("--dx", Math.random() * 110 - 55 + "px");
+          el.style.setProperty("--dy", Math.random() * 110 - 55 + "px");
+          game.append(el);
+          setTimeout(() => el.remove(), 750);
+        }
+      }
+
+      /* ========================================
+   SCORING AND LIVES
+======================================== */
+      function catchHeart(h) {
+        if (h.golden) {
+          score += CONFIG.goldenHeartPoints;
+
+          popup(
+            h.x,
+            h.y,
+            "+" + CONFIG.goldenHeartPoints + " GOLDEN! 🌟",
+            "#ffb700",
+          );
+
+          particles(h.x, h.y, "✨");
+
+          playSound(1200, 0.25);
+        } else if (h.black) {
+          score = Math.max(0, score - CONFIG.blackPenalty);
+
+          popup(h.x, h.y, "-" + CONFIG.blackPenalty, "#29212e");
+
+          particles(h.x, h.y, "🖤");
+
+          playSound(180, 0.22, "sawtooth");
+        } else {
+          score += CONFIG.redPoints;
+
+          popup(h.x, h.y, "+" + CONFIG.redPoints, "#ff3680");
+
+          particles(h.x, h.y, "💕");
+
+          playSound(680, 0.11);
+        }
+
+        if (!h.black) {
+          while (score >= nextExtraLife) {
+            if (lives < CONFIG.initialLives) {
+              lives++;
+              popup(
+                game.clientWidth / 2,
+                game.clientHeight / 2,
+                "❤️ +1 EXTRA LIFE!",
+                "#ff4f91",
+              );
+              playSound(1000, 0.3);
+            }
+
+            nextExtraLife += CONFIG.extraLifeEvery;
+          }
+        }
+
+        const newLevel = Math.min(
+          CONFIG.maxLevel,
+          Math.floor(score / CONFIG.levelEveryPoints) + 1,
+        );
+
+        if (newLevel > level) {
+          level = newLevel;
+          popup(
+            game.clientWidth / 2,
+            game.clientHeight / 2,
+            "LEVEL " + level + "! 🚀",
+            "#ff4f91",
+          );
+          playSound(950, 0.25);
+        }
+
+        updateHUD();
+      }
+
+      function missHeart(h) {
+        if (h.black || h.golden) return;
+        lives--;
+        updateHUD();
+
+        popup(h.x, game.clientHeight - 75, "💔 -1 LIFE", "#e52f65");
+        playSound(130, 0.35, "triangle");
+
+        if (lives <= 0) gameOver();
+      }
+
+      /* ========================================
+   MAIN GAME LOOP
+======================================== */
+      function loop(timestamp) {
+        if (!running || paused) return;
+
+        const dt = Math.min((timestamp - lastFrame) / 1000, 0.05);
+        lastFrame = timestamp;
+
+        // Spawn interval decreases as level increases.
+        const interval = Math.max(
+          200,
+          CONFIG.baseSpawnInterval - (level - 1) * 48,
+        );
+
+        spawnTimer += dt * 1000;
+
+        if (spawnTimer >= interval) {
+          spawnTimer = 0;
+          createHeart();
+        }
+
+        const gameHeight = game.clientHeight;
+        const basketWidth = basket.getBoundingClientRect().width || 70;
+        const basketHeight = basket.getBoundingClientRect().height || 70;
+
+        const basketLeft = basketX - basketWidth / 2;
+        const basketRight = basketX + basketWidth / 2;
+        const basketTop = gameHeight - basketHeight - 9;
+
+        for (let i = hearts.length - 1; i >= 0; i--) {
+          const h = hearts[i];
+
+          h.y += h.speed * dt;
+          h.el.style.transform = `translate3d(${h.x}px,${h.y}px,0)`;
+
+          const heartLeft = h.x;
+          const heartRight = h.x + h.size;
+          const heartBottom = h.y + h.size;
+
+          const collision =
+            heartRight > basketLeft + 10 &&
+            heartLeft < basketRight - 10 &&
+            heartBottom >= basketTop + 10 &&
+            h.y < gameHeight - 10;
+
+          if (collision) {
+            catchHeart(h);
+            h.el.remove();
+            hearts.splice(i, 1);
+          } else if (h.y > gameHeight) {
+            h.el.remove();
+            hearts.splice(i, 1);
+            missHeart(h);
+
+            if (!running) return;
+          }
+        }
+
+        animationId = requestAnimationFrame(loop);
+      }
+
+      /* ========================================
+   START / RESTART / GAME OVER
+======================================== */
+      function clearHearts() {
+        hearts.forEach((h) => h.el.remove());
+        hearts = [];
+        game.querySelectorAll(".particle,.pop").forEach((e) => e.remove());
+      }
+
+      function startGame() {
+        cancelAnimationFrame(animationId);
+        clearHearts();
+
+        score = 0;
+        lives = CONFIG.initialLives;
+        level = 1;
+        nextExtraLife = CONFIG.extraLifeEvery;
+        spawnTimer = 0;
+        paused = false;
+        running = true;
+
+        updateHUD();
+
+        $("overlay").style.display = "none";
+        $("pause").textContent = "⏸ Pause";
+
+        setBasketX(game.clientWidth / 2);
+
+        lastFrame = performance.now();
+        animationId = requestAnimationFrame(loop);
+      }
+
+      function gameOver() {
+        running = false;
+        paused = false;
+        cancelAnimationFrame(animationId);
+
+        $("modalEmoji").textContent = "💔";
+        $("modalTitle").textContent = "Game Over!";
+        $("modalText").textContent =
+          `${CONFIG.name}, you scored ${score} points and reached level ${level}. ` +
+          `Your best score is ${best}. ${CONFIG.winMessage}`;
+
+        $("start").textContent = "Play Again ❤️";
+        $("overlay").style.display = "flex";
+      }
+
+      function togglePause() {
+        if (!running) return;
+
+        paused = !paused;
+
+        if (paused) {
+          cancelAnimationFrame(animationId);
+          $("modalEmoji").textContent = "💗";
+          $("modalTitle").textContent = "Paused";
+          $("modalText").textContent = "Your hearts are waiting for you!";
+          $("start").textContent = "Resume Game ▶";
+          $("overlay").style.display = "flex";
+          $("pause").textContent = "▶ Resume";
+        } else {
+          $("overlay").style.display = "none";
+          $("pause").textContent = "⏸ Pause";
+          lastFrame = performance.now();
+          animationId = requestAnimationFrame(loop);
+        }
+      }
+
+      $("start").addEventListener("click", () => {
+        if (running && paused) togglePause();
+        else startGame();
+      });
+
+      $("pause").addEventListener("click", togglePause);
+      $("restart").addEventListener("click", startGame);
+
+      /* ========================================
+   THEME, MUSIC, SHARE
+======================================== */
+      $("theme").onclick = () => {
+        document.body.classList.toggle("dark");
+        $("theme").textContent = document.body.classList.contains("dark")
+          ? "☀️"
+          : "🌙";
+      };
+
+      $("music").onclick = () => {
+        soundEnabled = !soundEnabled;
+
+        if (CONFIG.musicUrl) {
+          audio = audio || new Audio(CONFIG.musicUrl);
+          audio.loop = true;
+          if (soundEnabled) audio.play().catch(() => {});
+          else audio.pause();
+        }
+
+        $("music").textContent = soundEnabled ? "🔊" : "🔇";
+      };
+
+      $("share").onclick = async () => {
+        const data = {
+          title: "Catch My Heart ❤️",
+          text: `I scored ${score} points! Can you beat me?`,
+          url: location.href,
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(data);
+          } catch (e) {}
+        } else {
+          try {
+            await navigator.clipboard.writeText(location.href);
+            alert("Game link copied! 💌");
+          } catch (e) {
+            prompt("Copy this link:", location.href);
+          }
+        }
+      };
+
+      /* ========================================
+   RESPONSIVE RESIZING
+======================================== */
+      window.addEventListener("resize", () => {
+        setBasketX(basketX || game.clientWidth / 2);
+      });
+
+      /* ========================================
+   HIDDEN EASTER EGG
+   Press L O V E in sequence.
+======================================== */
+      let secret = "";
+      document.addEventListener("keydown", (e) => {
+        secret = (secret + e.key.toLowerCase()).slice(-4);
+
+        if (secret === "love" && running && !paused) {
+          popup(game.clientWidth / 2, 100, "LOVE BOOST! 💖", "#ff4f91");
+          score += 50;
+          updateHUD();
+          particles(game.clientWidth / 2, 120, "💖");
+          secret = "";
+        }
+      });
+
+      // Initial basket position
+      setBasketX(game.clientWidth / 2);
+      updateHUD();
+    </script>
+  </body>
+</html>
