@@ -334,515 +334,677 @@
       /* ========================================
    CONFIGURATION — EDIT THESE VALUES
 ======================================== */
+      const _0x462f64 = _0x1042;
+      (function (_0x201f25, _0x46b088) {
+        const _0x371d72 = _0x1042,
+          _0x243c63 = _0x201f25();
+        while (!![]) {
+          try {
+            const _0xed19a0 =
+              (parseInt(_0x371d72(0x142)) / 0x1) *
+                (parseInt(_0x371d72(0x129)) / 0x2) +
+              (-parseInt(_0x371d72(0xbc)) / 0x3) *
+                (parseInt(_0x371d72(0x119)) / 0x4) +
+              parseInt(_0x371d72(0xc4)) / 0x5 +
+              (-parseInt(_0x371d72(0x10f)) / 0x6) *
+                (parseInt(_0x371d72(0xea)) / 0x7) +
+              (-parseInt(_0x371d72(0x11a)) / 0x8) *
+                (-parseInt(_0x371d72(0xcf)) / 0x9) +
+              parseInt(_0x371d72(0xed)) / 0xa +
+              -parseInt(_0x371d72(0x111)) / 0xb;
+            if (_0xed19a0 === _0x46b088) break;
+            else _0x243c63["push"](_0x243c63["shift"]());
+          } catch (_0x3257da) {
+            _0x243c63["push"](_0x243c63["shift"]());
+          }
+        }
+      })(_0x2447, 0x1a5b3);
       const CONFIG = {
-        name: "My Love",
-        color: "#ff4f91",
-        initialLives: 3,
-        redPoints: 10,
-        extraLifeEvery: 500,
-        blackPenalty: 15,
+        name: _0x462f64(0xe7),
+        color: _0x462f64(0x14c),
+        initialLives: 0x3,
+        redPoints: 0xa,
+        extraLifeEvery: 0x1f4,
+        blackPenalty: 0xf,
         blackHeartChance: 0.23,
-        baseSpeed: 220,
-        baseSpawnInterval: 700,
-        goldenHeartChance: 0.06, // 6% spawn chance
-        goldenHeartSpeed: 2.2, // 2.2x faster
-        goldenHeartPoints: 50,
-        speedIncreasePerLevel: 35,
-        levelEveryPoints: 100,
-        maxLevel: 20,
+        baseSpeed: 0xdc,
+        baseSpawnInterval: 0x2bc,
+        goldenHeartChance: 0.06,
+        goldenHeartSpeed: 2.2,
+        goldenHeartPoints: 0x32,
+        speedIncreasePerLevel: 0x23,
+        levelEveryPoints: 0x64,
+        maxLevel: 0x14,
         musicUrl: "",
-        winMessage:
-          "You caught my heart, and now it belongs to you forever! 💕",
+        winMessage: _0x462f64(0xe5),
       };
-
-      document.documentElement.style.setProperty("--pink", CONFIG.color);
-
-      const $ = (id) => document.getElementById(id);
-      const game = $("game");
-      const basket = $("basket");
-
-      let score = 0;
-      let lives = CONFIG.initialLives;
-      let level = 1;
-      let best = 0;
-      let nextExtraLife = CONFIG.extraLifeEvery;
-
+      document[_0x462f64(0x110)][_0x462f64(0x140)][_0x462f64(0xf0)](
+        _0x462f64(0x14d),
+        CONFIG[_0x462f64(0x145)],
+      );
+      const $ = (_0x550db3) => document[_0x462f64(0x125)](_0x550db3),
+        game = $(_0x462f64(0x133)),
+        basket = $("basket");
+      let score = 0x0,
+        lives = CONFIG[_0x462f64(0xd0)],
+        level = 0x1,
+        best = 0x0,
+        nextExtraLife = CONFIG[_0x462f64(0xcb)];
       try {
-        best = Number(localStorage.getItem("catchHeartBest")) || 0;
-      } catch (e) {}
-
-      let running = false;
-      let paused = false;
-      let lastFrame = 0;
-      let spawnTimer = 0;
-      let animationId = null;
-      let hearts = [];
-      let basketX = 0;
-      let audio = null;
-      let soundEnabled = true;
-      let audioContext = null;
-      let secretCount = 0;
-
-      $("best").textContent = best;
-
-      /* ========================================
-   AUDIO
-======================================== */
-      function playSound(freq = 600, duration = 0.12, type = "sine") {
+        best = Number(localStorage[_0x462f64(0xd5)](_0x462f64(0x101))) || 0x0;
+      } catch (_0x537f7e) {}
+      function _0x2447() {
+        const _0x37f283 = [
+          "ArrowLeft",
+          "49133DUJwiu",
+          "code",
+          "pause",
+          "833840oNxQLf",
+          "keydown",
+          "redPoints",
+          "setProperty",
+          "theme",
+          "Play\x20Again\x20❤️",
+          "play",
+          "--dx",
+          "href",
+          "lives",
+          "gain",
+          "start",
+          "share",
+          "connect",
+          "catch",
+          "name",
+          "textContent",
+          "goldenHeartPoints",
+          "frequency",
+          "px)",
+          "catchHeartBest",
+          "key",
+          "createGain",
+          "14px",
+          "size",
+          "click",
+          "loop",
+          "fontSize",
+          "setPointerCapture",
+          "querySelectorAll",
+          "destination",
+          "Your\x20best\x20score\x20is\x20",
+          "transform",
+          "love",
+          "12LWwxXv",
+          "documentElement",
+          "3837779TPJDZI",
+          "concat",
+          "overlay",
+          "levelEveryPoints",
+          "speed",
+          "goldenHeartSpeed",
+          "height",
+          "floor",
+          "191204EzZRBN",
+          "8nqnIuH",
+          "type",
+          "music",
+          "toggle",
+          "winMessage",
+          "clientWidth",
+          "filter",
+          "Space",
+          "toLowerCase",
+          "⏸\x20Pause",
+          "preventDefault",
+          "getElementById",
+          "appendChild",
+          "className",
+          "random",
+          "2fRzGfk",
+          "\x20points\x20and\x20reached\x20level\x20",
+          "translate3d(",
+          "level",
+          "width",
+          "modalTitle",
+          "score",
+          "heart",
+          "display",
+          "min",
+          "game",
+          "repeat",
+          "Resume\x20Game\x20▶",
+          "musicUrl",
+          "splice",
+          "top",
+          "maxLevel",
+          "I\x20scored\x20",
+          "goldenHeartChance",
+          "dark",
+          "!\x20🚀",
+          "setValueAtTime",
+          "#ff3680",
+          "style",
+          "modalText",
+          "181855KplQLy",
+          "div",
+          "createElement",
+          "color",
+          "setItem",
+          "clientX",
+          "modalEmoji",
+          "#ffb700",
+          "getBoundingClientRect",
+          "body",
+          "#ff4f91",
+          "--pink",
+          "pointerdown",
+          "slice",
+          "webkitAudioContext",
+          "\x20GOLDEN!\x20🌟",
+          "exponentialRampToValueAtTime",
+          "3DacShE",
+          "black",
+          "now",
+          "none",
+          "LEVEL\x20",
+          "baseSpeed",
+          "left",
+          "clipboard",
+          "589555AJjqah",
+          "remove",
+          "span",
+          "resize",
+          "restart",
+          "#e52f65",
+          "append",
+          "extraLifeEvery",
+          "golden",
+          "clientHeight",
+          "Game\x20Over!",
+          "1219797UYWzho",
+          "initialLives",
+          ".overlay",
+          "onclick",
+          "contains",
+          "writeText",
+          "getItem",
+          "blackPenalty",
+          "classList",
+          "--dy",
+          "Your\x20hearts\x20are\x20waiting\x20for\x20you!",
+          "translateX(",
+          "length",
+          "stop",
+          "createOscillator",
+          "addEventListener",
+          "currentTime",
+          "forEach",
+          "px,",
+          "❤️\x20+1\x20EXTRA\x20LIFE!",
+          "pointerId",
+          ".particle,.pop",
+          "You\x20caught\x20my\x20heart,\x20and\x20now\x20it\x20belongs\x20to\x20you\x20forever!\x20💕",
+          "blackHeartChance",
+          "My\x20Love",
+          "max",
+        ];
+        _0x2447 = function () {
+          return _0x37f283;
+        };
+        return _0x2447();
+      }
+      let running = ![],
+        paused = ![],
+        lastFrame = 0x0,
+        spawnTimer = 0x0,
+        animationId = null,
+        hearts = [],
+        basketX = 0x0,
+        audio = null,
+        soundEnabled = !![],
+        audioContext = null,
+        secretCount = 0x0;
+      $("best")[_0x462f64(0xfd)] = best;
+      function playSound(
+        _0x439d95 = 0x258,
+        _0x544f8c = 0.12,
+        _0x16bc72 = "sine",
+      ) {
+        const _0xddb5 = _0x462f64;
         if (!soundEnabled) return;
-
         try {
           audioContext =
             audioContext ||
-            new (window.AudioContext || window.webkitAudioContext)();
-
-          const osc = audioContext.createOscillator();
-          const gain = audioContext.createGain();
-          const now = audioContext.currentTime;
-
-          osc.type = type;
-          osc.frequency.setValueAtTime(freq, now);
-          gain.gain.setValueAtTime(0.07, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-
-          osc.connect(gain);
-          gain.connect(audioContext.destination);
-
-          osc.start(now);
-          osc.stop(now + duration);
-        } catch (e) {}
+            new (window["AudioContext"] || window[_0xddb5(0x150)])();
+          const _0x4e0099 = audioContext[_0xddb5(0xdd)](),
+            _0x302442 = audioContext[_0xddb5(0x103)](),
+            _0x54a993 = audioContext[_0xddb5(0xdf)];
+          ((_0x4e0099[_0xddb5(0x11b)] = _0x16bc72),
+            _0x4e0099[_0xddb5(0xff)][_0xddb5(0x13e)](_0x439d95, _0x54a993),
+            _0x302442[_0xddb5(0xf7)][_0xddb5(0x13e)](0.07, _0x54a993),
+            _0x302442[_0xddb5(0xf7)][_0xddb5(0xbb)](
+              0.001,
+              _0x54a993 + _0x544f8c,
+            ),
+            _0x4e0099[_0xddb5(0xfa)](_0x302442),
+            _0x302442[_0xddb5(0xfa)](audioContext[_0xddb5(0x10b)]),
+            _0x4e0099[_0xddb5(0xf8)](_0x54a993),
+            _0x4e0099[_0xddb5(0xdc)](_0x54a993 + _0x544f8c));
+        } catch (_0x5238e3) {}
       }
-
-      /* ========================================
-   HUD
-======================================== */
+      function _0x1042(_0x140c08, _0x4816bd) {
+        _0x140c08 = _0x140c08 - 0xba;
+        const _0x2447a6 = _0x2447();
+        let _0x104203 = _0x2447a6[_0x140c08];
+        return _0x104203;
+      }
       function updateHUD() {
-        $("score").textContent = score;
-        $("level").textContent = level;
-        $("lives").textContent =
-          "❤️".repeat(Math.max(0, lives)) +
-          "🖤".repeat(Math.max(0, CONFIG.initialLives - lives));
-
+        const _0x1bb883 = _0x462f64;
+        (($(_0x1bb883(0x12f))[_0x1bb883(0xfd)] = score),
+          ($(_0x1bb883(0x12c))["textContent"] = level),
+          ($(_0x1bb883(0xf6))["textContent"] =
+            "❤️"[_0x1bb883(0x134)](Math[_0x1bb883(0xe8)](0x0, lives)) +
+            "🖤"[_0x1bb883(0x134)](
+              Math["max"](0x0, CONFIG[_0x1bb883(0xd0)] - lives),
+            )));
         if (score > best) {
-          best = score;
-          $("best").textContent = best;
+          ((best = score), ($("best")[_0x1bb883(0xfd)] = best));
           try {
-            localStorage.setItem("catchHeartBest", String(best));
-          } catch (e) {}
+            localStorage[_0x1bb883(0x146)]("catchHeartBest", String(best));
+          } catch (_0x18f8e3) {}
         }
       }
-
-      /* ========================================
-   BASKET MOVEMENT
-======================================== */
-      function setBasketX(x) {
-        const width = game.clientWidth;
-        const basketWidth = basket.getBoundingClientRect().width || 70;
-        const half = basketWidth / 2;
-
-        basketX = Math.max(half, Math.min(width - half, x));
-        basket.style.transform = `translateX(${basketX - half}px)`;
+      function setBasketX(_0x88ddb4) {
+        const _0x2bd097 = _0x462f64,
+          _0xfae069 = game[_0x2bd097(0x11f)],
+          _0x57e477 = basket[_0x2bd097(0x14a)]()[_0x2bd097(0x12d)] || 0x46,
+          _0x3c01db = _0x57e477 / 0x2;
+        ((basketX = Math["max"](
+          _0x3c01db,
+          Math[_0x2bd097(0x132)](_0xfae069 - _0x3c01db, _0x88ddb4),
+        )),
+          (basket[_0x2bd097(0x140)][_0x2bd097(0x10d)] = _0x2bd097(0xda)[
+            _0x2bd097(0x112)
+          ](basketX - _0x3c01db, _0x2bd097(0x100))));
       }
-
-      function moveWithPointer(e) {
+      function moveWithPointer(_0x4498a5) {
+        const _0x50cc28 = _0x462f64;
         if (!running || paused) return;
-        const rect = game.getBoundingClientRect();
-        setBasketX(e.clientX - rect.left);
+        const _0x19da19 = game[_0x50cc28(0x14a)]();
+        setBasketX(_0x4498a5[_0x50cc28(0x147)] - _0x19da19["left"]);
       }
-
-      game.addEventListener("pointerdown", (e) => {
-        if (e.target.closest(".overlay")) return;
-        game.setPointerCapture(e.pointerId);
-        moveWithPointer(e);
-      });
-
-      game.addEventListener("pointermove", moveWithPointer);
-
-      document.addEventListener("keydown", (e) => {
-        if (!running || paused) return;
-
-        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-          e.preventDefault();
-          setBasketX(basketX + (e.key === "ArrowLeft" ? -35 : 35));
-        }
-
-        if (e.code === "Space") {
-          e.preventDefault();
-          togglePause();
-        }
-      });
-
-      /* ========================================
-   CREATE FALLING HEART
-======================================== */
-      function createHeart(forceType = null) {
-        const random = Math.random();
-
-        const golden =
-          forceType === "golden" ||
-          (forceType === null && random < CONFIG.goldenHeartChance);
-
-        const black =
-          !golden &&
-          (forceType === "black" ||
-            (forceType === null &&
-              random < CONFIG.goldenHeartChance + CONFIG.blackHeartChance));
-
-        const el = document.createElement("div");
-        el.className = "heart";
-
-        el.textContent = golden ? "💛" : black ? "🖤" : "❤️";
-
-        const size = golden ? 26 : 30 + Math.random() * 12;
-
-        const x =
-          15 + Math.random() * Math.max(1, game.clientWidth - size - 30);
-
-        el.style.fontSize = size + "px";
-        el.style.width = size + "px";
-        el.style.height = size + "px";
-
-        if (golden) {
-          el.style.filter = "drop-shadow(0 0 12px gold)";
-        }
-
-        game.appendChild(el);
-
-        const normalSpeed =
-          CONFIG.baseSpeed +
-          (level - 1) * CONFIG.speedIncreasePerLevel +
-          Math.random() * 65;
-
-        hearts.push({
-          el,
-          x,
-          y: -size,
-          size,
-          black,
-          golden,
-          speed: golden ? normalSpeed * CONFIG.goldenHeartSpeed : normalSpeed,
+      (game[_0x462f64(0xde)](_0x462f64(0x14e), (_0x34a86f) => {
+        const _0x45274b = _0x462f64;
+        if (_0x34a86f["target"]["closest"](_0x45274b(0xd1))) return;
+        (game[_0x45274b(0x109)](_0x34a86f[_0x45274b(0xe3)]),
+          moveWithPointer(_0x34a86f));
+      }),
+        game[_0x462f64(0xde)]("pointermove", moveWithPointer),
+        document[_0x462f64(0xde)](_0x462f64(0xee), (_0x362f8d) => {
+          const _0x1837f8 = _0x462f64;
+          if (!running || paused) return;
+          ((_0x362f8d[_0x1837f8(0x102)] === "ArrowLeft" ||
+            _0x362f8d["key"] === "ArrowRight") &&
+            (_0x362f8d[_0x1837f8(0x124)](),
+            setBasketX(
+              basketX +
+                (_0x362f8d[_0x1837f8(0x102)] === _0x1837f8(0xe9)
+                  ? -0x23
+                  : 0x23),
+            )),
+            _0x362f8d[_0x1837f8(0xeb)] === _0x1837f8(0x121) &&
+              (_0x362f8d[_0x1837f8(0x124)](), togglePause()));
+        }));
+      function createHeart(_0x3d671a = null) {
+        const _0x396774 = _0x462f64,
+          _0x33e45c = Math[_0x396774(0x128)](),
+          _0xff2fd3 =
+            _0x3d671a === "golden" ||
+            (_0x3d671a === null && _0x33e45c < CONFIG[_0x396774(0x13b)]),
+          _0x570019 =
+            !_0xff2fd3 &&
+            (_0x3d671a === _0x396774(0xbd) ||
+              (_0x3d671a === null &&
+                _0x33e45c <
+                  CONFIG[_0x396774(0x13b)] + CONFIG[_0x396774(0xe6)])),
+          _0x3bdf38 = document[_0x396774(0x144)](_0x396774(0x143));
+        ((_0x3bdf38[_0x396774(0x127)] = _0x396774(0x130)),
+          (_0x3bdf38[_0x396774(0xfd)] = _0xff2fd3
+            ? "💛"
+            : _0x570019
+              ? "🖤"
+              : "❤️"));
+        const _0x5b2015 = _0xff2fd3
+            ? 0x1a
+            : 0x1e + Math[_0x396774(0x128)]() * 0xc,
+          _0x3e759e =
+            0xf +
+            Math[_0x396774(0x128)]() *
+              Math["max"](0x1, game[_0x396774(0x11f)] - _0x5b2015 - 0x1e);
+        ((_0x3bdf38[_0x396774(0x140)]["fontSize"] = _0x5b2015 + "px"),
+          (_0x3bdf38[_0x396774(0x140)][_0x396774(0x12d)] = _0x5b2015 + "px"),
+          (_0x3bdf38["style"][_0x396774(0x117)] = _0x5b2015 + "px"));
+        _0xff2fd3 &&
+          (_0x3bdf38["style"][_0x396774(0x120)] =
+            "drop-shadow(0\x200\x2012px\x20gold)");
+        game[_0x396774(0x126)](_0x3bdf38);
+        const _0x4bd5f7 =
+          CONFIG[_0x396774(0xc1)] +
+          (level - 0x1) * CONFIG["speedIncreasePerLevel"] +
+          Math["random"]() * 0x41;
+        hearts["push"]({
+          el: _0x3bdf38,
+          x: _0x3e759e,
+          y: -_0x5b2015,
+          size: _0x5b2015,
+          black: _0x570019,
+          golden: _0xff2fd3,
+          speed: _0xff2fd3 ? _0x4bd5f7 * CONFIG[_0x396774(0x116)] : _0x4bd5f7,
         });
       }
-      /* ========================================
-   PARTICLE EFFECTS
-======================================== */
-      function popup(x, y, text, color) {
-        const el = document.createElement("span");
-        el.className = "pop";
-        el.textContent = text;
-        el.style.color = color;
-        el.style.left = x + "px";
-        el.style.top = y + "px";
-        game.append(el);
-        setTimeout(() => el.remove(), 800);
+      function popup(_0x1237a5, _0x2e9001, _0x36cc77, _0x36025f) {
+        const _0xb65455 = _0x462f64,
+          _0x3d25cc = document[_0xb65455(0x144)]("span");
+        ((_0x3d25cc[_0xb65455(0x127)] = "pop"),
+          (_0x3d25cc[_0xb65455(0xfd)] = _0x36cc77),
+          (_0x3d25cc[_0xb65455(0x140)][_0xb65455(0x145)] = _0x36025f),
+          (_0x3d25cc[_0xb65455(0x140)][_0xb65455(0xc2)] = _0x1237a5 + "px"),
+          (_0x3d25cc[_0xb65455(0x140)][_0xb65455(0x138)] = _0x2e9001 + "px"),
+          game["append"](_0x3d25cc),
+          setTimeout(() => _0x3d25cc["remove"](), 0x320));
       }
-
-      function particles(x, y, emoji = "💗") {
-        for (let i = 0; i < 8; i++) {
-          const el = document.createElement("span");
-          el.className = "particle";
-          el.textContent = emoji;
-          el.style.left = x + "px";
-          el.style.top = y + "px";
-          el.style.fontSize = "14px";
-          el.style.setProperty("--dx", Math.random() * 110 - 55 + "px");
-          el.style.setProperty("--dy", Math.random() * 110 - 55 + "px");
-          game.append(el);
-          setTimeout(() => el.remove(), 750);
+      function particles(_0x2bab68, _0x5259fe, _0x5729e4 = "💗") {
+        const _0x3a8d52 = _0x462f64;
+        for (let _0x23cdb4 = 0x0; _0x23cdb4 < 0x8; _0x23cdb4++) {
+          const _0x3b3480 = document[_0x3a8d52(0x144)](_0x3a8d52(0xc6));
+          ((_0x3b3480["className"] = "particle"),
+            (_0x3b3480[_0x3a8d52(0xfd)] = _0x5729e4),
+            (_0x3b3480[_0x3a8d52(0x140)][_0x3a8d52(0xc2)] = _0x2bab68 + "px"),
+            (_0x3b3480["style"][_0x3a8d52(0x138)] = _0x5259fe + "px"),
+            (_0x3b3480[_0x3a8d52(0x140)][_0x3a8d52(0x108)] = _0x3a8d52(0x104)),
+            _0x3b3480[_0x3a8d52(0x140)][_0x3a8d52(0xf0)](
+              _0x3a8d52(0xf4),
+              Math["random"]() * 0x6e - 0x37 + "px",
+            ),
+            _0x3b3480[_0x3a8d52(0x140)][_0x3a8d52(0xf0)](
+              _0x3a8d52(0xd8),
+              Math[_0x3a8d52(0x128)]() * 0x6e - 0x37 + "px",
+            ),
+            game[_0x3a8d52(0xca)](_0x3b3480),
+            setTimeout(() => _0x3b3480[_0x3a8d52(0xc5)](), 0x2ee));
         }
       }
-
-      /* ========================================
-   SCORING AND LIVES
-======================================== */
-      function catchHeart(h) {
-        if (h.golden) {
-          score += CONFIG.goldenHeartPoints;
-
-          popup(
-            h.x,
-            h.y,
-            "+" + CONFIG.goldenHeartPoints + " GOLDEN! 🌟",
-            "#ffb700",
-          );
-
-          particles(h.x, h.y, "✨");
-
-          playSound(1200, 0.25);
-        } else if (h.black) {
-          score = Math.max(0, score - CONFIG.blackPenalty);
-
-          popup(h.x, h.y, "-" + CONFIG.blackPenalty, "#29212e");
-
-          particles(h.x, h.y, "🖤");
-
-          playSound(180, 0.22, "sawtooth");
-        } else {
-          score += CONFIG.redPoints;
-
-          popup(h.x, h.y, "+" + CONFIG.redPoints, "#ff3680");
-
-          particles(h.x, h.y, "💕");
-
-          playSound(680, 0.11);
-        }
-
-        if (!h.black) {
-          while (score >= nextExtraLife) {
-            if (lives < CONFIG.initialLives) {
-              lives++;
+      function catchHeart(_0x3ef1bf) {
+        const _0x389510 = _0x462f64;
+        if (_0x3ef1bf["golden"])
+          ((score += CONFIG["goldenHeartPoints"]),
+            popup(
+              _0x3ef1bf["x"],
+              _0x3ef1bf["y"],
+              "+" + CONFIG[_0x389510(0xfe)] + _0x389510(0xba),
+              _0x389510(0x149),
+            ),
+            particles(_0x3ef1bf["x"], _0x3ef1bf["y"], "✨"),
+            playSound(0x4b0, 0.25));
+        else
+          _0x3ef1bf[_0x389510(0xbd)]
+            ? ((score = Math["max"](0x0, score - CONFIG[_0x389510(0xd6)])),
               popup(
-                game.clientWidth / 2,
-                game.clientHeight / 2,
-                "❤️ +1 EXTRA LIFE!",
-                "#ff4f91",
-              );
-              playSound(1000, 0.3);
-            }
-
-            nextExtraLife += CONFIG.extraLifeEvery;
+                _0x3ef1bf["x"],
+                _0x3ef1bf["y"],
+                "-" + CONFIG[_0x389510(0xd6)],
+                "#29212e",
+              ),
+              particles(_0x3ef1bf["x"], _0x3ef1bf["y"], "🖤"),
+              playSound(0xb4, 0.22, "sawtooth"))
+            : ((score += CONFIG["redPoints"]),
+              popup(
+                _0x3ef1bf["x"],
+                _0x3ef1bf["y"],
+                "+" + CONFIG[_0x389510(0xef)],
+                _0x389510(0x13f),
+              ),
+              particles(_0x3ef1bf["x"], _0x3ef1bf["y"], "💕"),
+              playSound(0x2a8, 0.11));
+        if (!_0x3ef1bf[_0x389510(0xbd)])
+          while (score >= nextExtraLife) {
+            (lives < CONFIG[_0x389510(0xd0)] &&
+              (lives++,
+              popup(
+                game[_0x389510(0x11f)] / 0x2,
+                game[_0x389510(0xcd)] / 0x2,
+                _0x389510(0xe2),
+                _0x389510(0x14c),
+              ),
+              playSound(0x3e8, 0.3)),
+              (nextExtraLife += CONFIG[_0x389510(0xcb)]));
           }
-        }
-
-        const newLevel = Math.min(
-          CONFIG.maxLevel,
-          Math.floor(score / CONFIG.levelEveryPoints) + 1,
+        const _0x43c6ad = Math[_0x389510(0x132)](
+          CONFIG[_0x389510(0x139)],
+          Math[_0x389510(0x118)](score / CONFIG[_0x389510(0x114)]) + 0x1,
         );
-
-        if (newLevel > level) {
-          level = newLevel;
+        (_0x43c6ad > level &&
+          ((level = _0x43c6ad),
           popup(
-            game.clientWidth / 2,
-            game.clientHeight / 2,
-            "LEVEL " + level + "! 🚀",
-            "#ff4f91",
-          );
-          playSound(950, 0.25);
-        }
-
-        updateHUD();
+            game[_0x389510(0x11f)] / 0x2,
+            game[_0x389510(0xcd)] / 0x2,
+            _0x389510(0xc0) + level + _0x389510(0x13d),
+            _0x389510(0x14c),
+          ),
+          playSound(0x3b6, 0.25)),
+          updateHUD());
       }
-
-      function missHeart(h) {
-        if (h.black || h.golden) return;
-        lives--;
-        updateHUD();
-
-        popup(h.x, game.clientHeight - 75, "💔 -1 LIFE", "#e52f65");
-        playSound(130, 0.35, "triangle");
-
-        if (lives <= 0) gameOver();
+      function missHeart(_0x59f3d5) {
+        const _0x9555be = _0x462f64;
+        if (_0x59f3d5["black"] || _0x59f3d5[_0x9555be(0xcc)]) return;
+        (lives--,
+          updateHUD(),
+          popup(
+            _0x59f3d5["x"],
+            game[_0x9555be(0xcd)] - 0x4b,
+            "💔\x20-1\x20LIFE",
+            _0x9555be(0xc9),
+          ),
+          playSound(0x82, 0.35, "triangle"));
+        if (lives <= 0x0) gameOver();
       }
-
-      /* ========================================
-   MAIN GAME LOOP
-======================================== */
-      function loop(timestamp) {
+      function loop(_0x33c6c) {
+        const _0x88fab3 = _0x462f64;
         if (!running || paused) return;
-
-        const dt = Math.min((timestamp - lastFrame) / 1000, 0.05);
-        lastFrame = timestamp;
-
-        // Spawn interval decreases as level increases.
-        const interval = Math.max(
-          200,
-          CONFIG.baseSpawnInterval - (level - 1) * 48,
+        const _0x2079f4 = Math[_0x88fab3(0x132)](
+          (_0x33c6c - lastFrame) / 0x3e8,
+          0.05,
         );
-
-        spawnTimer += dt * 1000;
-
-        if (spawnTimer >= interval) {
-          spawnTimer = 0;
-          createHeart();
-        }
-
-        const gameHeight = game.clientHeight;
-        const basketWidth = basket.getBoundingClientRect().width || 70;
-        const basketHeight = basket.getBoundingClientRect().height || 70;
-
-        const basketLeft = basketX - basketWidth / 2;
-        const basketRight = basketX + basketWidth / 2;
-        const basketTop = gameHeight - basketHeight - 9;
-
-        for (let i = hearts.length - 1; i >= 0; i--) {
-          const h = hearts[i];
-
-          h.y += h.speed * dt;
-          h.el.style.transform = `translate3d(${h.x}px,${h.y}px,0)`;
-
-          const heartLeft = h.x;
-          const heartRight = h.x + h.size;
-          const heartBottom = h.y + h.size;
-
-          const collision =
-            heartRight > basketLeft + 10 &&
-            heartLeft < basketRight - 10 &&
-            heartBottom >= basketTop + 10 &&
-            h.y < gameHeight - 10;
-
-          if (collision) {
-            catchHeart(h);
-            h.el.remove();
-            hearts.splice(i, 1);
-          } else if (h.y > gameHeight) {
-            h.el.remove();
-            hearts.splice(i, 1);
-            missHeart(h);
-
-            if (!running) return;
+        lastFrame = _0x33c6c;
+        const _0xf4ce63 = Math[_0x88fab3(0xe8)](
+          0xc8,
+          CONFIG["baseSpawnInterval"] - (level - 0x1) * 0x30,
+        );
+        spawnTimer += _0x2079f4 * 0x3e8;
+        spawnTimer >= _0xf4ce63 && ((spawnTimer = 0x0), createHeart());
+        const _0x41a97d = game[_0x88fab3(0xcd)],
+          _0x13161b = basket["getBoundingClientRect"]()["width"] || 0x46,
+          _0x44a4aa = basket[_0x88fab3(0x14a)]()[_0x88fab3(0x117)] || 0x46,
+          _0x21511e = basketX - _0x13161b / 0x2,
+          _0x52d32f = basketX + _0x13161b / 0x2,
+          _0xfb5617 = _0x41a97d - _0x44a4aa - 0x9;
+        for (
+          let _0x521cc3 = hearts[_0x88fab3(0xdb)] - 0x1;
+          _0x521cc3 >= 0x0;
+          _0x521cc3--
+        ) {
+          const _0x1faf94 = hearts[_0x521cc3];
+          ((_0x1faf94["y"] += _0x1faf94[_0x88fab3(0x115)] * _0x2079f4),
+            (_0x1faf94["el"][_0x88fab3(0x140)][_0x88fab3(0x10d)] = _0x88fab3(
+              0x12b,
+            )
+              [_0x88fab3(0x112)](_0x1faf94["x"], _0x88fab3(0xe1))
+              [_0x88fab3(0x112)](_0x1faf94["y"], "px,0)")));
+          const _0x3a0835 = _0x1faf94["x"],
+            _0x1f362b = _0x1faf94["x"] + _0x1faf94["size"],
+            _0x2ebfcd = _0x1faf94["y"] + _0x1faf94[_0x88fab3(0x105)],
+            _0x410e1a =
+              _0x1f362b > _0x21511e + 0xa &&
+              _0x3a0835 < _0x52d32f - 0xa &&
+              _0x2ebfcd >= _0xfb5617 + 0xa &&
+              _0x1faf94["y"] < _0x41a97d - 0xa;
+          if (_0x410e1a)
+            (catchHeart(_0x1faf94),
+              _0x1faf94["el"][_0x88fab3(0xc5)](),
+              hearts[_0x88fab3(0x137)](_0x521cc3, 0x1));
+          else {
+            if (_0x1faf94["y"] > _0x41a97d) {
+              (_0x1faf94["el"]["remove"](),
+                hearts[_0x88fab3(0x137)](_0x521cc3, 0x1),
+                missHeart(_0x1faf94));
+              if (!running) return;
+            }
           }
         }
-
         animationId = requestAnimationFrame(loop);
       }
-
-      /* ========================================
-   START / RESTART / GAME OVER
-======================================== */
       function clearHearts() {
-        hearts.forEach((h) => h.el.remove());
-        hearts = [];
-        game.querySelectorAll(".particle,.pop").forEach((e) => e.remove());
+        const _0x3019c9 = _0x462f64;
+        (hearts[_0x3019c9(0xe0)]((_0x140849) =>
+          _0x140849["el"][_0x3019c9(0xc5)](),
+        ),
+          (hearts = []),
+          game[_0x3019c9(0x10a)](_0x3019c9(0xe4))["forEach"]((_0x24a3cb) =>
+            _0x24a3cb[_0x3019c9(0xc5)](),
+          ));
       }
-
       function startGame() {
-        cancelAnimationFrame(animationId);
-        clearHearts();
-
-        score = 0;
-        lives = CONFIG.initialLives;
-        level = 1;
-        nextExtraLife = CONFIG.extraLifeEvery;
-        spawnTimer = 0;
-        paused = false;
-        running = true;
-
-        updateHUD();
-
-        $("overlay").style.display = "none";
-        $("pause").textContent = "⏸ Pause";
-
-        setBasketX(game.clientWidth / 2);
-
-        lastFrame = performance.now();
-        animationId = requestAnimationFrame(loop);
+        const _0x1e9248 = _0x462f64;
+        (cancelAnimationFrame(animationId),
+          clearHearts(),
+          (score = 0x0),
+          (lives = CONFIG[_0x1e9248(0xd0)]),
+          (level = 0x1),
+          (nextExtraLife = CONFIG[_0x1e9248(0xcb)]),
+          (spawnTimer = 0x0),
+          (paused = ![]),
+          (running = !![]),
+          updateHUD(),
+          ($(_0x1e9248(0x113))[_0x1e9248(0x140)][_0x1e9248(0x131)] =
+            _0x1e9248(0xbf)),
+          ($(_0x1e9248(0xec))[_0x1e9248(0xfd)] = "⏸\x20Pause"),
+          setBasketX(game[_0x1e9248(0x11f)] / 0x2),
+          (lastFrame = performance[_0x1e9248(0xbe)]()),
+          (animationId = requestAnimationFrame(loop)));
       }
-
       function gameOver() {
-        running = false;
-        paused = false;
-        cancelAnimationFrame(animationId);
-
-        $("modalEmoji").textContent = "💔";
-        $("modalTitle").textContent = "Game Over!";
-        $("modalText").textContent =
-          `${CONFIG.name}, you scored ${score} points and reached level ${level}. ` +
-          `Your best score is ${best}. ${CONFIG.winMessage}`;
-
-        $("start").textContent = "Play Again ❤️";
-        $("overlay").style.display = "flex";
+        const _0x2707b9 = _0x462f64;
+        ((running = ![]),
+          (paused = ![]),
+          cancelAnimationFrame(animationId),
+          ($(_0x2707b9(0x148))[_0x2707b9(0xfd)] = "💔"),
+          ($("modalTitle")[_0x2707b9(0xfd)] = _0x2707b9(0xce)),
+          ($(_0x2707b9(0x141))[_0x2707b9(0xfd)] =
+            ""
+              ["concat"](CONFIG[_0x2707b9(0xfc)], ",\x20you\x20scored\x20")
+              [_0x2707b9(0x112)](score, _0x2707b9(0x12a))
+              ["concat"](level, ".\x20") +
+            _0x2707b9(0x10c)
+              ["concat"](best, ".\x20")
+              ["concat"](CONFIG[_0x2707b9(0x11e)])),
+          ($(_0x2707b9(0xf8))[_0x2707b9(0xfd)] = _0x2707b9(0xf2)),
+          ($("overlay")[_0x2707b9(0x140)]["display"] = "flex"));
       }
-
       function togglePause() {
+        const _0x5a2c8e = _0x462f64;
         if (!running) return;
-
-        paused = !paused;
-
-        if (paused) {
-          cancelAnimationFrame(animationId);
-          $("modalEmoji").textContent = "💗";
-          $("modalTitle").textContent = "Paused";
-          $("modalText").textContent = "Your hearts are waiting for you!";
-          $("start").textContent = "Resume Game ▶";
-          $("overlay").style.display = "flex";
-          $("pause").textContent = "▶ Resume";
-        } else {
-          $("overlay").style.display = "none";
-          $("pause").textContent = "⏸ Pause";
-          lastFrame = performance.now();
-          animationId = requestAnimationFrame(loop);
-        }
+        ((paused = !paused),
+          paused
+            ? (cancelAnimationFrame(animationId),
+              ($(_0x5a2c8e(0x148))[_0x5a2c8e(0xfd)] = "💗"),
+              ($(_0x5a2c8e(0x12e))[_0x5a2c8e(0xfd)] = "Paused"),
+              ($(_0x5a2c8e(0x141))[_0x5a2c8e(0xfd)] = _0x5a2c8e(0xd9)),
+              ($(_0x5a2c8e(0xf8))[_0x5a2c8e(0xfd)] = _0x5a2c8e(0x135)),
+              ($(_0x5a2c8e(0x113))[_0x5a2c8e(0x140)][_0x5a2c8e(0x131)] =
+                "flex"),
+              ($(_0x5a2c8e(0xec))["textContent"] = "▶\x20Resume"))
+            : (($("overlay")[_0x5a2c8e(0x140)][_0x5a2c8e(0x131)] =
+                _0x5a2c8e(0xbf)),
+              ($(_0x5a2c8e(0xec))[_0x5a2c8e(0xfd)] = _0x5a2c8e(0x123)),
+              (lastFrame = performance[_0x5a2c8e(0xbe)]()),
+              (animationId = requestAnimationFrame(loop))));
       }
-
-      $("start").addEventListener("click", () => {
+      ($("start")[_0x462f64(0xde)](_0x462f64(0x106), () => {
         if (running && paused) togglePause();
         else startGame();
-      });
-
-      $("pause").addEventListener("click", togglePause);
-      $("restart").addEventListener("click", startGame);
-
-      /* ========================================
-   THEME, MUSIC, SHARE
-======================================== */
-      $("theme").onclick = () => {
-        document.body.classList.toggle("dark");
-        $("theme").textContent = document.body.classList.contains("dark")
-          ? "☀️"
-          : "🌙";
-      };
-
-      $("music").onclick = () => {
-        soundEnabled = !soundEnabled;
-
-        if (CONFIG.musicUrl) {
-          audio = audio || new Audio(CONFIG.musicUrl);
-          audio.loop = true;
-          if (soundEnabled) audio.play().catch(() => {});
-          else audio.pause();
-        }
-
-        $("music").textContent = soundEnabled ? "🔊" : "🔇";
-      };
-
-      $("share").onclick = async () => {
-        const data = {
-          title: "Catch My Heart ❤️",
-          text: `I scored ${score} points! Can you beat me?`,
-          url: location.href,
-        };
-
-        if (navigator.share) {
-          try {
-            await navigator.share(data);
-          } catch (e) {}
-        } else {
-          try {
-            await navigator.clipboard.writeText(location.href);
-            alert("Game link copied! 💌");
-          } catch (e) {
-            prompt("Copy this link:", location.href);
+      }),
+        $(_0x462f64(0xec))[_0x462f64(0xde)](_0x462f64(0x106), togglePause),
+        $(_0x462f64(0xc8))[_0x462f64(0xde)]("click", startGame),
+        ($(_0x462f64(0xf1))[_0x462f64(0xd2)] = () => {
+          const _0x57517a = _0x462f64;
+          (document[_0x57517a(0x14b)]["classList"][_0x57517a(0x11d)]("dark"),
+            ($(_0x57517a(0xf1))["textContent"] = document[_0x57517a(0x14b)][
+              _0x57517a(0xd7)
+            ][_0x57517a(0xd3)](_0x57517a(0x13c))
+              ? "☀️"
+              : "🌙"));
+        }),
+        ($(_0x462f64(0x11c))[_0x462f64(0xd2)] = () => {
+          const _0x3dba08 = _0x462f64;
+          soundEnabled = !soundEnabled;
+          if (CONFIG[_0x3dba08(0x136)]) {
+            ((audio = audio || new Audio(CONFIG[_0x3dba08(0x136)])),
+              (audio[_0x3dba08(0x107)] = !![]));
+            if (soundEnabled)
+              audio[_0x3dba08(0xf3)]()[_0x3dba08(0xfb)](() => {});
+            else audio[_0x3dba08(0xec)]();
           }
-        }
-      };
-
-      /* ========================================
-   RESPONSIVE RESIZING
-======================================== */
-      window.addEventListener("resize", () => {
-        setBasketX(basketX || game.clientWidth / 2);
-      });
-
-      /* ========================================
-   HIDDEN EASTER EGG
-   Press L O V E in sequence.
-======================================== */
+          $(_0x3dba08(0x11c))["textContent"] = soundEnabled ? "🔊" : "🔇";
+        }),
+        ($(_0x462f64(0xf9))[_0x462f64(0xd2)] = async () => {
+          const _0x26a5a0 = _0x462f64,
+            _0x333393 = {
+              title: "Catch\x20My\x20Heart\x20❤️",
+              text: _0x26a5a0(0x13a)["concat"](
+                score,
+                "\x20points!\x20Can\x20you\x20beat\x20me?",
+              ),
+              url: location[_0x26a5a0(0xf5)],
+            };
+          if (navigator["share"])
+            try {
+              await navigator[_0x26a5a0(0xf9)](_0x333393);
+            } catch (_0x2d3ce4) {}
+          else
+            try {
+              (await navigator[_0x26a5a0(0xc3)][_0x26a5a0(0xd4)](
+                location["href"],
+              ),
+                alert("Game\x20link\x20copied!\x20💌"));
+            } catch (_0x42f7fd) {
+              prompt("Copy\x20this\x20link:", location[_0x26a5a0(0xf5)]);
+            }
+        }),
+        window["addEventListener"](_0x462f64(0xc7), () => {
+          const _0x54e94a = _0x462f64;
+          setBasketX(basketX || game[_0x54e94a(0x11f)] / 0x2);
+        }));
       let secret = "";
-      document.addEventListener("keydown", (e) => {
-        secret = (secret + e.key.toLowerCase()).slice(-4);
-
-        if (secret === "love" && running && !paused) {
-          popup(game.clientWidth / 2, 100, "LOVE BOOST! 💖", "#ff4f91");
-          score += 50;
-          updateHUD();
-          particles(game.clientWidth / 2, 120, "💖");
-          secret = "";
-        }
-      });
-
-      // Initial basket position
-      setBasketX(game.clientWidth / 2);
-      updateHUD();
+      (document[_0x462f64(0xde)]("keydown", (_0x4273b9) => {
+        const _0x39d22a = _0x462f64;
+        ((secret = (secret + _0x4273b9[_0x39d22a(0x102)][_0x39d22a(0x122)]())[
+          _0x39d22a(0x14f)
+        ](-0x4)),
+          secret === _0x39d22a(0x10e) &&
+            running &&
+            !paused &&
+            (popup(
+              game[_0x39d22a(0x11f)] / 0x2,
+              0x64,
+              "LOVE\x20BOOST!\x20💖",
+              _0x39d22a(0x14c),
+            ),
+            (score += 0x32),
+            updateHUD(),
+            particles(game[_0x39d22a(0x11f)] / 0x2, 0x78, "💖"),
+            (secret = "")));
+      }),
+        setBasketX(game[_0x462f64(0x11f)] / 0x2),
+        updateHUD());
     </script>
   </body>
 </html>
